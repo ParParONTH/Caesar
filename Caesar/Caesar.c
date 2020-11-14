@@ -29,7 +29,7 @@ char decipher_or_encryption(char letter, enum state op, int key)
 	switch (op)
 	{
 	case DECIPHER:
-		return pivot + (letter - pivot - key) % 26;
+		return pivot + (letter - pivot - (key%26)+26) % 26;
 			break;
 	case ENCRYPT:
 		return pivot + ((letter - pivot + key) % 26);
